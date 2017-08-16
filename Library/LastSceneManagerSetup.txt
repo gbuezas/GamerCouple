@@ -1,1 +1,4 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/GamerCouple.unity
+  isLoaded: 1
+  isActive: 1
