@@ -1,0 +1,57 @@
+Deadline 18/11/2017
+
+Game:
+-2D plataformas.
+-5 pantallas distintas con bosses.
+-Sistema de batalla.
+-Sistema de vida personaje y sustain.
+-Generacion de mobs cercano al personaje.
+-Sistema de Score.
+
+Task
+-23/08-
+Gabriel: Investigar calidad grafica unity. Manejo de escenas.
+Marco: Manejo de frames(setear fps, pauseo de juego, save).
+
+-30/08-
+Gabriel: Generacion de mapa.
+Marco: Camara (siga al pj y no se salga del limite del nivel)
+
+-06/09-
+Gabriel: Animacion y movimiento del personaje.
+Marco: Generacion de mobs cercanos.
+
+-13/09-
+Gabriel: Colision enemigos (enemigo: tocar para dañar, Personaje: pegar, titila al recibir daño).
+Marco: Movimiento "IA" enemigos (no salta agujeros, vuelve en el borde, se traba al recibir daño, investar retroceso al recibir daño).
+
+-20/09-
+Gabriel: Colision enemigos (enemigo: tocar para dañar, Personaje: pegar, titila al recibir daño).
+Marco: Movimiento "IA" enemigos (no salta agujeros, vuelve en el borde, se traba al recibir daño, investar retroceso al recibir daño).
+
+-27/09-
+Gabriel: Sistema de vida personaje y mobs.
+Marco: sistema de score y sustain personaje.
+
+-04/10-
+Gabriel: Sonidos (agregar al juego)
+Marco: Musica (agregar al juego)
+
+-11/10-
+Gabriel: Menu opciones (controles).
+Marco: Menu opciones (video, audio).
+
+-18/10-
+Gabriel: Creditos (game over, final juego).
+Marco: Menu inicio (start, opciones, salir, ranking)
+
+-25/10-
+pulido
+-01/11-
+pulido
+-08/11-
+pulido
+|5/11
+pulido
+-18/11-
+Testeo
