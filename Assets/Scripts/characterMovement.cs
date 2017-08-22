@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class characterMovement : MonoBehaviour {
 
 
@@ -13,10 +14,14 @@ public class characterMovement : MonoBehaviour {
         characterRigidbody = GetComponent<Rigidbody2D>();
         
     }
-
-
+    private void Update()
+    {
+        
+    }
+    
+    
     // Update is called once per frame
-    void Update() {
+    private void FixedUpdate() {
         
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
@@ -36,7 +41,7 @@ public class characterMovement : MonoBehaviour {
             characterRigidbody.AddForce(movement * speed);
         }
 
-     
-
     }
+
+
 }
