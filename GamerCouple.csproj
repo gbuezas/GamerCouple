@@ -78,6 +78,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="GamerCouple.Plugins.csproj">
+      <Project>{04575E8C-A645-1650-B713-83C10EDEE7AC}</Project>
+      <Name>GamerCouple.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Scripts\characterMovement.cs" />
     <Compile Include="Assets\Scripts\fpsCounter.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />

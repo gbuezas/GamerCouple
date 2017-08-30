@@ -31,7 +31,7 @@ public class characterMovement : MonoBehaviour {
         {
             Debug.Log("Apretando un boton " + KeyCode.A);
             //speed = 10;
-            characterRigidbody.AddForce(movement * speed);
+            characterRigidbody.AddForce(movement * speed);            
         }
   
         if (Input.GetKey(KeyCode.D))
