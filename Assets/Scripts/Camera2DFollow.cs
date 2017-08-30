@@ -80,21 +80,18 @@ namespace UnitySampleAssets._2D
 
             Vector3 aheadTargetPos = target.position + lookAheadPos + Vector3.forward*offsetZ;
             Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref currentVelocity, damping);
+
             getRightCam();
+
+            //Consigue las coordenadas del borde derecho e izquierdo de la camara.
             coordsDerechaCam = Camera.main.ScreenToWorldPoint(derechaCam);
             coordsIzquierdaCam = Camera.main.ScreenToWorldPoint(izquierdaCam);
+
+            //Calcula el offset del centro de la camara a los bordes.
             offsetCamIzquierda = coordsIzquierdaCam.x - newPos.x;
             offsetCamDerecha = coordsDerechaCam.x - newPos.x;
             
-             /*if ((coordsDerechaCam.x + 3) >= maxClampX)
-             {
-                 newPos = new Vector3(Mathf.Clamp(newPos.x, minClampX, newPos.x), Mathf.Clamp(newPos.y, minClampY, maxClampY), newPos.z);
-             }
-             else
-             {
-                 newPos = new Vector3(newPos.x, Mathf.Clamp(newPos.y, minClampY, maxClampY), newPos.z);
-             }*/
-
+            //Clampea la camara en el eje X y en el eje Y.
             newPos = new Vector3(Mathf.Clamp(newPos.x, minClampX - offsetCamIzquierda, maxClampX - offsetCamDerecha), Mathf.Clamp(newPos.y, minClampY, maxClampY), newPos.z);
 
             transform.position = newPos;
@@ -112,7 +109,7 @@ namespace UnitySampleAssets._2D
                 searchTime = Time.time + 0.5f;
             }
         }
-
+        //Busca un objecto con TAG Player y si lo encuentra, lo setea al target de la camara al cargar la pantalla.
         private void SetCameraTarget()
         {
             Debug.Log("Buscando target player.");
@@ -129,14 +126,15 @@ namespace UnitySampleAssets._2D
             }
         }
         
+        //Busca el ultimo Tile con TAG y consigue las coordenadas para el clampeo.
         private void GetMaxClampX()
         {
-            Debug.Log("Buscando ultimo sprite con TAG.");
-            GameObject lastSprite = GameObject.FindGameObjectWithTag("LastSprite");
-            if (lastSprite != null)
+            Debug.Log("Buscando ultimo Tile con TAG.");
+            GameObject lastTile = GameObject.FindGameObjectWithTag("LastTile");
+            if (lastTile != null)
             {
-                Debug.Log("Se encontro ultimo sprite con TAG.");
-                objMaxClampX = lastSprite.transform;
+                Debug.Log("Se encontro ultimo Tile con TAG.");
+                objMaxClampX = lastTile.transform;
                 maxClampX = objMaxClampX.position.x;
             }
             else
@@ -145,23 +143,27 @@ namespace UnitySampleAssets._2D
                 return;
             }              
         }
+
+        //Busca el primer Tile con TAG y consigue las coordenadas para el clampeo
         private void GetMinClampX()
         {
-            Debug.Log("Buscando primer sprite con TAG.");
-            GameObject firstSprite = GameObject.FindGameObjectWithTag("FirstSprite");
-            if (firstSprite != null)
+            Debug.Log("Buscando primer Tile con TAG.");
+            GameObject firstTile = GameObject.FindGameObjectWithTag("FirstTile");
+            if (firstTile != null)
             {
-                Debug.Log("Se encontro primer sprite con TAG.");
-                objMinClampX = firstSprite.transform;
+                Debug.Log("Se encontro primer Tile con TAG.");
+                objMinClampX = firstTile.transform;
                 minClampX = objMinClampX.position.x;
                 
             }
             else
             {
-                Debug.LogError("No se encontro primer sprite con TAG");
+                Debug.LogError("No se encontro primer Tile con TAG");
                 return;
             }
         }
+
+        //Consige los pixeles de la esquina superior derecha de la camara.
         private void getRightCam()
         {
             derechaCam.x = Camera.main.pixelWidth;
