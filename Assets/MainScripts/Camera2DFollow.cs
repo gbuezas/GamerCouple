@@ -14,7 +14,7 @@ namespace UnitySampleAssets._2D
         public float lookAheadFactor = 3;
         public float lookAheadReturnSpeed = 0.5f;
         public float lookAheadMoveThreshold = 0.1f;
-        //public float minClampY = 0f; GAB - Lo cambie directamente en la funcion ya que aca no funca
+        public float minClampY = 4.5f;
         public float maxClampY = Mathf.Infinity;
         public float searchTime = 0f;
         private Transform objMinClampX;
@@ -33,18 +33,6 @@ namespace UnitySampleAssets._2D
         private Vector3 derechaCam;
         private Vector3 izquierdaCam;
         
-        // No funcionaba en esta instancia, se paso a Start()
-        //private void Awake()
-        //{
-            //if (target == null)
-                //SetCameraTarget();
-
-            //if (lastTile == null)
-                //GetMaxClampX();
-
-            //if (firstTile == null)
-                //GetMinClampX();
-        //}
 
 
         // Use this for initialization
@@ -102,8 +90,8 @@ namespace UnitySampleAssets._2D
             offsetCamDerecha = coordsDerechaCam.x - newPos.x;
             
             //Clampea la camara en el eje X y en el eje Y.
-            // GAB - Cambie el minClampY harcodeado
-            newPos = new Vector3(Mathf.Clamp(newPos.x, minClampX - offsetCamIzquierda, maxClampX - offsetCamDerecha), Mathf.Clamp(newPos.y, 4.5f, maxClampY), newPos.z);
+            
+            newPos = new Vector3(Mathf.Clamp(newPos.x, minClampX - offsetCamIzquierda, maxClampX - offsetCamDerecha), Mathf.Clamp(newPos.y, minClampY, maxClampY), newPos.z);
 
             transform.position = newPos;
             lastTargetPosition = target.position;
